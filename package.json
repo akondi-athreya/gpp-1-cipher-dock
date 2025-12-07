@@ -1,0 +1,25 @@
+{
+  "name": "gpp-1-cipher-dock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akondi-athreya/gpp-1-cipher-dock.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/akondi-athreya/gpp-1-cipher-dock/issues"
+  },
+  "homepage": "https://github.com/akondi-athreya/gpp-1-cipher-dock#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
