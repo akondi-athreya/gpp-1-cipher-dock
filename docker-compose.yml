@@ -5,7 +5,8 @@ services:
     build: .
     container_name: gpp-cipher-dock
     working_dir: /app
+    ports:
+      - "8080:8080"
     volumes:
-      - .:/app
       - ./data:/data
-    command: sleep infinity
+      - ./cron:/cron
