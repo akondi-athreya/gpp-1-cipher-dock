@@ -7,9 +7,7 @@ const API_URL = "https://eajeyq4r3zljoq4rpovy2nthda0vtjqf.lambda-url.ap-south-1.
 async function requestSeed(studentId, githubRepoUrl) {
     try {
         const publicKeyPath = path.join(__dirname, "..", "keys", "student_public.pem");
-        let publicKey = fs.readFileSync(publicKeyPath, "utf8");
-
-        publicKey = publicKey.replace(/\n/g, "\\n");
+        const publicKey = fs.readFileSync(publicKeyPath, "utf8");
 
         const payload = {
             student_id: studentId,
@@ -33,11 +31,13 @@ async function requestSeed(studentId, githubRepoUrl) {
 
         const encryptedSeed = response.data.encrypted_seed;
 
-        const outputFile = path.join(__dirname, "..", "encrypted_seed.txt");
+        // save the encrypted seed in keys folder
+        const outputFile = path.join(__dirname, "..", "keys", "encrypted_seed.txt");
         fs.writeFileSync(outputFile, encryptedSeed);
 
         console.log("✔ Encrypted seed saved to encrypted_seed.txt");
     } catch (err) {
+        console.log(err);
         console.error("❌ Error requesting seed:", err.message);
     }
 }

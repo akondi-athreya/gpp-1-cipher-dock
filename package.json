@@ -20,6 +20,9 @@
   },
   "homepage": "https://github.com/akondi-athreya/gpp-1-cipher-dock#readme",
   "dependencies": {
-    "express": "^5.2.1"
+    "axios": "^1.13.2",
+    "express": "^5.2.1",
+    "hi-base32": "^0.5.1",
+    "otplib": "^12.0.1"
   }
 }

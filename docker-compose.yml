@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    container_name: gpp-cipher-dock
+    working_dir: /app
+    volumes:
+      - .:/app
+      - ./data:/data
+    command: sleep infinity
