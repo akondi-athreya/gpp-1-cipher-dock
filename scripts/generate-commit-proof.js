@@ -13,19 +13,20 @@ function getLatestCommitHash() {
 }
 
 function signMessage(commitHash, privateKeyPem) {
+    // CRITICAL — sign ASCII string
     const messageBuffer = Buffer.from(commitHash, "utf8");
 
     const signature = crypto.sign("sha256", messageBuffer, {
         key: privateKeyPem,
         padding: crypto.constants.RSA_PKCS1_PSS_PADDING,
-        saltLength: crypto.constants.RSA_PSS_SALTLEN_MAX_SIGN,
+        saltLength: crypto.constants.RSA_PSS_SALTLEN_MAX, // FIXED
     });
 
     return signature;
 }
 
 function encryptWithPublicKey(dataBuffer, publicKeyPem) {
-    const encrypted = crypto.publicEncrypt(
+    return crypto.publicEncrypt(
         {
             key: publicKeyPem,
             padding: crypto.constants.RSA_PKCS1_OAEP_PADDING,
@@ -33,8 +34,6 @@ function encryptWithPublicKey(dataBuffer, publicKeyPem) {
         },
         dataBuffer
     );
-
-    return encrypted; // bytes
 }
 
 function main() {
