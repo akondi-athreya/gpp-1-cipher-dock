@@ -1,7 +1,12 @@
-node_modules
-
+node_modules/
 .env
+.vscode/
+.idea/
+__pycache__/
+*.pyc
 
+# Encrypted seed (sensitive)
 /keys/encrypted_seed.txt
 
-cron
+# Cron output (generated at runtime)
+cron/last_code.txt

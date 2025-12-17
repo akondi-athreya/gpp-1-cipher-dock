@@ -1,1 +1,1 @@
-* * * * * date -u > /cron/heartbeat.txt 2>&1
+* * * * * root date -u > /cron/heartbeat.txt 2>&1
